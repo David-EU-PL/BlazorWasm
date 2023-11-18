@@ -1,0 +1,59 @@
+﻿@page "/counter"
+@page "/counter-test"
+@page "/counter-par/{header?}/{isDeleted:bool?}"
+
+
+<PageTitle>Counter</PageTitle>
+
+<h1>Counter</h1>
+<h2>Wartość parametru: @Header</h2>
+<h2>Wartość parametru 2 [from query]: @Header2</h2>
+<h2>IsDeleted:</h2>
+@if (!IsDeleted.HasValue)
+{
+    <p>NULL</p>
+}
+else if (IsDeleted.GetValueOrDefault())
+{
+    <p>TRUE</p>
+}
+else
+{
+    <p>FALSE</p>
+}
+<p role="status">Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+<br />
+
+<button class="btn btn-primary my-3" @onclick="ToogleActive"> Przełącz tryb</button>
+
+@if (_isActive)
+{
+    <p class="text-light bg-success p-2">AKTYWNY</p>
+}
+else
+{
+    <p class="text-light bg-danger p-2">NIEAKTYWNY</p>
+}
+
+<p class="text-light bg-info p-2">Ten produkt jest: @(_isActive ? "AKTYWNY" : "NIEAKTYWNY")</p>
+<p class="text-light @(_isActive ? "bg-success" : "bg-danger") p-2">Ten produkt jest: @(_isActive ? "AKTYWNY" : "NIEAKTYWNY")</p>
+
+<hr />
+<Table></Table>
+
+<hr />
+
+
+<button class="btn btn-primary my-3" @onclick="GoToHome">Strona główna</button>
+
+<h2>Studenci:</h2>
+<ul>
+
+    @foreach (var item in StudentRepo.Get())
+    {
+        <li>@item.Name</li>
+    }
+</ul>
