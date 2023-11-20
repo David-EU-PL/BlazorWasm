@@ -8,6 +8,7 @@
     <base href="/" />
     <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
     <link rel="stylesheet" href="css/app.css" />
+    <link href="lib/toastr.js/toastr.min.css" rel="stylesheet" />
     <link rel="icon" type="image/png" href="favicon.png" />
     <link href="BlazorWasm.styles.css" rel="stylesheet" />
 </head>
@@ -21,12 +22,11 @@
         <div class="loading-progress-text"></div>
     </div>
 
-    <div id="blazor-error-ui">
-        An unhandled error has occurred.
-        <a href="" class="reload">Reload</a>
-        <a class="dismiss">🗙</a>
-    </div>
     <script src="_framework/blazor.webassembly.js"></script>
+    <script src="scripts/jsFunctions.js"></script>
+    <script src="lib/jquery/jquery.min.js"></script>
+    <script src="lib/toastr.js/toastr.min.js"></script>
+    <script src="scripts/toastrWrapper.js"></script>
 </body>
 
 </html>
