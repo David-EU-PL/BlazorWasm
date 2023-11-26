@@ -19,7 +19,7 @@ namespace BlazorWasm.Pages
         public string? Header2 { get; set; }
 
         [Inject]
-        public NavigationManager NavigationManager { get; set; }
+        public NavigationManager NavigationManager { get; set; } 
 
         [Inject]
         public IStudentRepo StudentRepo { get; set; }
